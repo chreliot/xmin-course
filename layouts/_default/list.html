@@ -13,6 +13,9 @@
   <li>
     <span class="date">{{ .Date.Format "2006/01/02" }}</span>
     <a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a>
+    {{ if eq .Section "notes" }}
+      {{ with .Params.date }}{{ .Format "(Jan 2)" }}{{ end }}
+    {{ end }}
   </li>
   {{ end }}
 </ul>
